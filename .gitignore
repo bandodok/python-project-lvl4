@@ -1,0 +1,4 @@
+.venv
+task_manager/.env
+.idea/
+db.sqlite3
