@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Users</h1>
+<ul>
+{% for user in object_list %}
+    <li>{{ user.first_name }} - {{ user.last_name }}</li>
+{% empty %}
+    <li>No users yet.</li>
+{% endfor %}
+</ul>
+{% if user.is_authenticated %}
+    <form action="/logout/" method="post">{% csrf_token %}
+            <input type="submit" value="Loguot">
+        </form>
+{% endif %}
+</body>
+</html>
