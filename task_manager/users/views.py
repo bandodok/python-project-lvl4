@@ -1,8 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.shortcuts import redirect
 from django.utils import timezone
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView, DeleteView, FormView
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 
 # Create your views here.
@@ -37,14 +40,33 @@ class Create(FormView):
         return super(Create, self).form_invalid(form)
 
 
-class Update(UpdateView):
+class Update(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+
     model = User
     fields = ['username', 'first_name', 'last_name', 'password']
     template_name = 'update_user.html'
     success_url = '/users/'
+    permission_denied_message = 'Permission denied'
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.id == self.request.user.id
+
+    def handle_no_permission(self):
+        messages.error(self.request, self.permission_denied_message)
+        return redirect('/users/')
 
 
-class Delete(DeleteView):
+class Delete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = User
     template_name = 'delete_user.html'
     success_url = '/users/'
+    permission_denied_message = 'Permission denied'
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.id == self.request.user.id
+
+    def handle_no_permission(self):
+        messages.error(self.request, self.permission_denied_message)
+        return redirect('/users/')
