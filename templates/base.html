@@ -1,0 +1,47 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+    {# Load the tag library #}
+    {% load bootstrap4 %}
+
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+
+{% block nav %}
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Менеджер задач</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="{% url 'users' %}"><button type="button" class="btn btn-light">{% trans 'Users' %}</button></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'create' %}"><button type="button" class="btn btn-light">{% trans 'Regisrtation' %}</button></a>
+                </li>
+                <li class="nav-item">
+                    {% if user.is_authenticated %}
+                        <form action="/logout/" method="post">{% csrf_token %}
+                        <input type="submit" class="btn btn-light" value="Loguot">
+                        </form>
+                    {% else %}
+                        <a href="{% url 'login' %}"><button type="button" class="btn btn-light">{% trans 'Login' %}</button></a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+{% endblock %}
+<body>
+{% block body %}
+{% endblock %}
+</body>
+
+</html>
