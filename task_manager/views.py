@@ -1,6 +1,6 @@
 from django.shortcuts import redirect
 from django.shortcuts import render
-from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.views.generic.edit import FormView
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -31,7 +31,7 @@ class Login(FormView):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect(redirect(request.META.get('HTTP_REFERER')))
+            return redirect('/')
         else:
             return HttpResponse('invalid')
 
