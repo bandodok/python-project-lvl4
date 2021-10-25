@@ -22,9 +22,11 @@
                 <li class="nav-item">
                     <a href="{% url 'users' %}"><button type="button" class="btn btn-light">{% trans 'Users' %}</button></a>
                 </li>
+                {% if user.is_anonymous %}
                 <li class="nav-item">
                     <a href="{% url 'create' %}"><button type="button" class="btn btn-light">{% trans 'Regisrtation' %}</button></a>
                 </li>
+                {% endif %}
                 <li class="nav-item">
                     {% if user.is_authenticated %}
                         <form action="/logout/" method="post">{% csrf_token %}
