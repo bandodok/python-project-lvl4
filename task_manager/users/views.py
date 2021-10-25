@@ -29,7 +29,7 @@ class MyRegisterFormView(UserCreationForm):
 
 class Create(FormView):
     form_class = MyRegisterFormView
-    success_url = '/users/'
+    success_url = '/login/'
     template_name = 'create_user.html'
 
     def form_valid(self, form):
