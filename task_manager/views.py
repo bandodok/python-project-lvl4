@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.views.generic.edit import FormView
@@ -30,14 +31,17 @@ class Login(FormView):
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
+            messages.success(self.request, 'Вы залогинены')
             login(request, user)
             return redirect('/')
         else:
-            return HttpResponse('invalid')
+            messages.error(self.request, 'Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут быть чувствительны к регистру.')
+            return redirect(self.request.META.get('HTTP_REFERER'))
 
 
 class Logout(FormView):
 
     def post(self, request, *args, **kwargs):
         logout(request)
+        messages.success(self.request, 'Вы разлогинены')
         return redirect(request.META.get('HTTP_REFERER'))

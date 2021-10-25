@@ -34,6 +34,7 @@ class Create(FormView):
 
     def form_valid(self, form):
         form.save()
+        messages.success(self.request, 'Пользователь успешно зарегистрирован')
         return super(Create, self).form_valid(form)
 
     def form_invalid(self, form):
@@ -55,6 +56,11 @@ class Update(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def handle_no_permission(self):
         messages.error(self.request, self.permission_denied_message)
         return redirect('/users/')
+
+    def form_valid(self, form):
+        form.save()
+        messages.success(self.request, 'Пользователь успешно изменен')
+        return super(Update, self).form_valid(form)
 
 
 class Delete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
