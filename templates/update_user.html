@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load bootstrap4 %}
 {% block body %}
     <div class="container">
     <h3 class="h3">Изменение пользователя</h3>
+    {% bootstrap_messages %}
     <form method="post">{% csrf_token %}
         {% for field in form %}
         <div class="form-group">
@@ -17,7 +19,7 @@
             {% endif %}
         </div>
         {% endfor %}
-        <input type="submit" value="Login">
+        <input type="submit" value="Update">
     </form>
     </div>
 {% endblock %}
