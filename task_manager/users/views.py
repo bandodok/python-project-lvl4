@@ -44,7 +44,7 @@ class Create(FormView):
 class Update(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     model = User
-    fields = ['username', 'first_name', 'last_name', 'password']
+    fields = ['username', 'first_name', 'last_name']
     template_name = 'update_user.html'
     success_url = '/users/'
     permission_denied_message = 'Permission denied'
