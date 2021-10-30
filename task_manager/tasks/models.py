@@ -7,7 +7,7 @@ class Task(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
-    status = models.ForeignKey(Status, on_delete=models.CASCADE, related_name='status', null=True)
+    status = models.ForeignKey(Status, on_delete=models.CASCADE, related_name='status')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='author')
     executor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='executor')
 
