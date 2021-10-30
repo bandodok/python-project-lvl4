@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load bootstrap4 %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% bootstrap_messages %}
+            </div>
+        </div>
+        <div class="row">
+            <h1 class="h1">Tasks</h1>
+        </div>
+        <div class="row">
+            <a href="{% url 'task_create' %}">Create task</a>
+        </div>
+
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Имя</th>
+                      <th scope="col">Статус</th>
+                      <th scope="col">Автор</th>
+                      <th scope="col">Исполнитель</th>
+                      <th scope="col">Дата создания</th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in object_list %}
+                    <tr>
+                        <td class="align-middle">{{ task.id }}</td>
+                        <td class="align-middle">{{ task.name }}</td>
+                        <td class="align-middle">{{ task.status.name }}</td>
+                        <td class="align-middle">{{ task.author.username }}</td>
+                        <td class="align-middle">{{ task.executor.username }}</td>
+                        {% language 'ru' %}
+                        <td class="align-middle">{{ task.created }}</td>
+                        {% endlanguage %}
+                        <td class="align-middle">
+                            <a href="{% url 'task_update' task.id %}">Изменить</a>
+                            <br>
+                            <a href="{% url 'task_delete' task.id %}">Удалить</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <th rowspan="5">No tasks yet.</th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

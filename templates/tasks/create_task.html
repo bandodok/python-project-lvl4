@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load bootstrap4 %}
+{% block body %}
+    <div class="container">
+    <h3 class="h3">Task creation</h3>
+    {% bootstrap_messages %}
+    <form method="post">{% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+        {% if field.html_name == 'status' or field.html_name == 'executor' %}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            <select class="form-control" name="{{ field.html_name }}" id="{{ field.id_for_label }}">
+            {% for option in field %}
+                {{ option }}
+            {% endfor %}
+            </select>
+        {% else %}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            <input name="{{ field.html_name }}" type="{{ field.html_name }}" class="form-control" id="{{ field.id_for_label }}" placeholder="{{ field.label }}">
+        {% endif %}
+            {% if field.help_text %}
+            <small id="textHelp" class="text-danger">{{ field.errors }}</small>
+            <small id="textHelp" class="form-text text-muted">{{ field.help_text|safe }}</small>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <input type="submit" value="Create">
+    </form>
+    </div>
+{% endblock %}
