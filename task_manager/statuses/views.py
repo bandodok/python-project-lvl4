@@ -17,7 +17,7 @@ class StatusCreationForm(forms.ModelForm):
 class Index(LoginRequiredMixin, ListView):
     model = Status
     paginate_by = 100
-    template_name = 'status_list.html'
+    template_name = 'statuses/status_list.html'
 
     def handle_no_permission(self):
         messages.error(self.request, 'Permission denied')
@@ -26,7 +26,7 @@ class Index(LoginRequiredMixin, ListView):
 
 class Create(LoginRequiredMixin, FormView):
     model = Status
-    template_name = 'create_status.html'
+    template_name = 'statuses/create_status.html'
     success_url = '/statuses/'
     form_class = StatusCreationForm
 
@@ -46,7 +46,7 @@ class Create(LoginRequiredMixin, FormView):
 
 class Update(LoginRequiredMixin, UpdateView):
     model = Status
-    template_name = 'update_status.html'
+    template_name = 'statuses/update_status.html'
     success_url = '/statuses/'
     fields = ['name']
 
@@ -66,7 +66,7 @@ class Update(LoginRequiredMixin, UpdateView):
 
 class Delete(LoginRequiredMixin, DeleteView):
     model = Status
-    template_name = 'delete_status.html'
+    template_name = 'statuses/delete_status.html'
     success_url = '/statuses/'
 
     def handle_no_permission(self):

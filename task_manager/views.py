@@ -24,7 +24,7 @@ class LoginForm(forms.Form):
 class Login(FormView):
 
     form_class = LoginForm
-    template_name = 'login_user.html'
+    template_name = 'users/login_user.html'
 
     def post(self, request, *args, **kwargs):
         username = request.POST['username']

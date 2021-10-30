@@ -12,7 +12,7 @@ from django.contrib import messages
 class Index(ListView):
     model = User
     paginate_by = 100
-    template_name = 'user_list.html'
+    template_name = 'users/user_list.html'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -30,7 +30,7 @@ class MyRegisterFormView(UserCreationForm):
 class Create(FormView):
     form_class = MyRegisterFormView
     success_url = '/login/'
-    template_name = 'create_user.html'
+    template_name = 'users/create_user.html'
 
     def form_valid(self, form):
         form.save()
@@ -45,7 +45,7 @@ class Update(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     model = User
     fields = ['username', 'first_name', 'last_name']
-    template_name = 'update_user.html'
+    template_name = 'users/update_user.html'
     success_url = '/users/'
     permission_denied_message = 'Permission denied'
 
@@ -65,7 +65,7 @@ class Update(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class Delete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = User
-    template_name = 'delete_user.html'
+    template_name = 'users/delete_user.html'
     success_url = '/users/'
     permission_denied_message = 'Permission denied'
 
