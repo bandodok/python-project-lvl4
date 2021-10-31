@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load bootstrap4 %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% bootstrap_messages %}
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="h3">Просмотр задачи</h3>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ task.name }}</h5>
+                        <p class="card-text">{{ task.description }}</p>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Автор</td>
+                                    <td>{{ task.author }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Исполнитель</td>
+                                    <td>{{ task.executor }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Статус</td>
+                                    <td>{{ task.status }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Дата создания</td>
+                                    <td>{{ task.created }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Метки</td>
+                                    <td>reserved</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="{% url 'task_update' task.id %}">Изменить</a>
+                        <br>
+                        <a href="{% url 'task_delete' task.id %}">Удалить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,12 +1,16 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.views.generic import DetailView
 from django.views.generic.edit import FormView, UpdateView, DeleteView
 from django.views.generic.list import ListView
-from task_manager.statuses.models import Status
 from task_manager.tasks.models import Task
 from django import forms
-from django.contrib.auth.models import User
+
+
+class TaskView(DetailView):
+    template_name = 'tasks/task.html'
+    queryset = Task.objects.all()
 
 
 class TaskCreationForm(forms.ModelForm):
