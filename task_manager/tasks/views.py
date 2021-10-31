@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.views.generic import DetailView
@@ -72,11 +72,15 @@ class Update(LoginRequiredMixin, UpdateView):
         return redirect('/')
 
 
-class Delete(LoginRequiredMixin, DeleteView):
+class Delete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Task
     template_name = 'tasks/delete_task.html'
     success_url = '/tasks/'
 
+    def test_func(self):
+        task = self.get_object()
+        return task.author.id == self.request.user.id
+
     def handle_no_permission(self):
         messages.error(self.request, 'Permission denied')
-        return redirect('/')
+        return redirect('/tasks')
