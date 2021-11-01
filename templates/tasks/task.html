@@ -35,12 +35,13 @@
                                     <td>Дата создания</td>
                                     <td>{{ task.created }}</td>
                                 </tr>
-                                <tr>
-                                    <td>Метки</td>
-                                    <td>reserved</td>
-                                </tr>
-                            </tbody>
                         </table>
+                            <p>Метки:</p>
+                            <ul>
+                                {% for label in task.labels.all %}
+                                    <li>{{ label.name }}</li>
+                                {% endfor %}
+                            </ul>
                         <a href="{% url 'task_update' task.id %}">Изменить</a>
                         <br>
                         <a href="{% url 'task_delete' task.id %}">Удалить</a>
