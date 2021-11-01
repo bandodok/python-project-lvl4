@@ -78,4 +78,8 @@ class CrudTaskTest(TestCase):
         self.client.login(username='PetrovF666', password='qwerty88!')
         task_id = Task.objects.get(name='default_task').id
         self.client.post(f'/tasks/{task_id}/delete/')
+        self.assertTrue(Task.objects.all())
+
+        self.client.login(username='Petrov2', password='qwerty88!')
+        self.client.post(f'/tasks/{task_id}/delete/')
         self.assertFalse(Task.objects.all())
