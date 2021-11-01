@@ -38,7 +38,7 @@ class CrudStatusTest(TestCase):
         label = Label.objects.get(id=label_id)
         self.assertEqual(label.name, 'simple_label')
 
-    def test_user_delete(self):
+    def test_label_delete(self):
         self.client.login(username='PetrovF666', password='qwerty88!')
         label_id = Label.objects.get(name='Ultimate_label').id
         self.client.post(f'/labels/{label_id}/delete/')
