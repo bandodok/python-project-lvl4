@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.views.generic.edit import FormView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from task_manager.labels.models import Label
@@ -68,6 +69,12 @@ class Delete(LoginRequiredMixin, DeleteView):
     model = Label
     template_name = 'labels/delete_label.html'
     success_url = '/labels/'
+
+    def delete(self, request, *args, **kwargs):
+        label = self.get_object()
+        if label.task_set.all():
+            messages.error(self.request, "Can't delete task")
+            return redirect(reverse_lazy('labels'))
 
     def handle_no_permission(self):
         messages.error(self.request, 'Permission denied')
