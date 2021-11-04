@@ -3,9 +3,11 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.views.generic import DetailView
 from django.views.generic.edit import FormView, UpdateView, DeleteView
-from django.views.generic.list import ListView
+from django_filters.views import FilterView
 from task_manager.tasks.models import Task
+from task_manager.labels.models import Label
 from django import forms
+import django_filters
 
 
 class TaskView(DetailView):
@@ -20,10 +22,31 @@ class TaskCreationForm(forms.ModelForm):
         fields = ['name', 'description', 'status', 'executor', 'labels']
 
 
-class Index(LoginRequiredMixin, ListView):
+class TaskFilter(django_filters.FilterSet):
+    labels = django_filters.ChoiceFilter(
+        choices=tuple((label.id, label.name) for label in Label.objects.all())
+    )
+
+    class Meta:
+        model = Task
+        fields = ['status', 'executor', 'labels']
+
+
+class Index(LoginRequiredMixin, FilterView):
     model = Task
     paginate_by = 100
     template_name = 'tasks/task_list.html'
+    filterset_class = TaskFilter
+
+    def get_queryset(self):
+        if self.request.GET.get('self_tasks') == 'on':
+            user = self.request.user
+            return Task.objects.filter(author=user)
+        return Task.objects.all()
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(Index, self).get_context_data(**kwargs)
+        return context
 
     def handle_no_permission(self):
         messages.error(self.request, 'Permission denied')
