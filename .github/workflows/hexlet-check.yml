@@ -23,7 +23,5 @@ jobs:
 
       - name: Hexlet project check
         uses: hexlet/project-action@release
-        env:
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         with:
           hexlet-id: ${{ secrets.HEXLET_ID }}
