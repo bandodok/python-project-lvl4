@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 18:26+0300\n"
+"POT-Creation-Date: 2021-11-06 18:51+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,9 +54,9 @@ msgstr "Исполнитель"
 msgid "Labels"
 msgstr "Метки"
 
-#: .\task_manager\tasks\views.py:22
-msgid "labels"
-msgstr "Метки"
+#: .\task_manager\tasks\views.py:29
+msgid "label"
+msgstr "Меткa"
 
 #: .\task_manager\views.py:16
 msgid "Username"
