@@ -67,8 +67,8 @@
                         <td class="align-middle">{{ task.id }}</td>
                         <td class="align-middle"><a href="{% url 'task' task.id %}">{{ task.name }}</a></td>
                         <td class="align-middle">{{ task.status.name }}</td>
-                        <td class="align-middle">{{ task.author.username }}</td>
-                        <td class="align-middle">{{ task.executor.username }}</td>
+                        <td class="align-middle">{{ task.author }}</td>
+                        <td class="align-middle">{{ task.executor }}</td>
                         {% language 'ru' %}
                         <td class="align-middle">{{ task.created }}</td>
                         {% endlanguage %}
