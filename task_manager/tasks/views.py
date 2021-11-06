@@ -20,12 +20,12 @@ class TaskCreationForm(forms.ModelForm):
 
     class Meta:
         model = Task
-        fields = ['name', 'description', 'status', 'executor', 'labels']
+        fields = ['name', 'description', 'status', 'executor', 'label']
 
 
 class TaskFilter(django_filters.FilterSet):
     try:
-        labels = django_filters.ChoiceFilter(
+        label = django_filters.ChoiceFilter(
             label=_('label'),
             choices=tuple((label.id, label.name) for label in Label.objects.all())
         )
@@ -34,7 +34,7 @@ class TaskFilter(django_filters.FilterSet):
 
     class Meta:
         model = Task
-        fields = ['status', 'executor', 'labels']
+        fields = ['status', 'executor', 'label']
 
 
 class Index(LoginRequiredMixin, FilterView):
@@ -68,9 +68,9 @@ class Create(LoginRequiredMixin, FormView):
         task = form.save(commit=False)
         task.author = self.request.user
         task.save()
-        if form.cleaned_data['labels']:
-            for label in form.cleaned_data['labels']:
-                task.labels.add(label)
+        if form.cleaned_data['label']:
+            for label in form.cleaned_data['label']:
+                task.label.add(label)
             task.save()
         messages.success(self.request, 'Задача успешно создана')
         return super(Create, self).form_valid(form)
@@ -88,7 +88,7 @@ class Update(LoginRequiredMixin, UpdateView):
     model = Task
     template_name = 'tasks/update_task.html'
     success_url = '/tasks/'
-    fields = ['name', 'description', 'status', 'executor', 'labels']
+    fields = ['name', 'description', 'status', 'executor', 'label']
 
     def form_valid(self, form):
         form.save()

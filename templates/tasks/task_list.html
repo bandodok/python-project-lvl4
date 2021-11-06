@@ -19,7 +19,7 @@
                 {% for field in filter.form %}
                 <div class="col-4">
                     <div class="form-group">
-                    {% if field.html_name == 'status' or field.html_name == 'executor' or field.html_name == 'author' or field.html_name == 'labels'%}
+                    {% if field.html_name == 'status' or field.html_name == 'executor' or field.html_name == 'author' or field.html_name == 'label'%}
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                         <select class="form-control" name="{{ field.html_name }}" id="{{ field.id_for_label }}">
                         {% for option in field %}
