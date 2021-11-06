@@ -17,14 +17,6 @@ class TaskView(DetailView):
 
 
 class TaskCreationForm(forms.ModelForm):
-    try:
-        labels = forms.MultipleChoiceField(
-            label=_('labels'),
-            choices=tuple((label.id, label.name) for label in Label.objects.all()),
-            required=False
-        )
-    except Exception:
-        pass
 
     class Meta:
         model = Task
