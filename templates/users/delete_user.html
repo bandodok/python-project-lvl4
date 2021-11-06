@@ -1,13 +1,14 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% trans 'Delete user' %}</title>
 </head>
 <body>
 <form method="post">{% csrf_token %}
-    <p>Are you sure you want to delete "{{ object }}"?</p>
-    <input type="submit" value="Confirm">
+    <p>{% trans 'Are you sure you want to delete' %} "{{ object }}"?</p>
+    <input type="submit" value="{% trans 'Delete' %}">
 </form>
 </body>
 </html>

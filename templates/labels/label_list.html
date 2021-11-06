@@ -9,10 +9,10 @@
             </div>
         </div>
         <div class="row">
-            <h1 class="h1">Labels</h1>
+            <h1 class="h1">{% trans 'Labels' %}</h1>
         </div>
         <div class="row">
-            <a href="{% url 'label_create' %}">Create label</a>
+            <a href="{% url 'label_create' %}">{% trans 'Create label' %}</a>
         </div>
 
         <div class="row">
@@ -34,14 +34,14 @@
                         <td class="align-middle">{{ label.created }}</td>
                         {% endlanguage %}
                         <td class="align-middle">
-                            <a href="{% url 'label_update' label.id %}">Изменить</a>
+                            <a href="{% url 'label_update' label.id %}">{% trans 'Change' %}</a>
                             <br>
-                            <a href="{% url 'label_delete' label.id %}">Удалить</a>
+                            <a href="{% url 'label_delete' label.id %}">{% trans 'Delete' %}</a>
                         </td>
                     </tr>
                     {% empty %}
                     <tr>
-                        <th rowspan="5">No labels yet.</th>
+                        <th rowspan="5">{% trans 'No labels yet.' %}</th>
                     </tr>
                     {% endfor %}
                 </tbody>

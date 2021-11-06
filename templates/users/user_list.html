@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="row">
-            <h1 class="h1">Users</h1>
+            <h1 class="h1">{% trans 'Users' %}</h1>
         </div>
         <div class="row">
             <table class="table">
@@ -32,14 +32,14 @@
                         <td class="align-middle">{{ user.date_joined }}</td>
                         {% endlanguage %}
                         <td class="align-middle">
-                            <a href="{% url 'update' user.id %}">Изменить</a>
+                            <a href="{% url 'update' user.id %}">{% trans 'Change' %}</a>
                             <br>
-                            <a href="{% url 'delete' user.id %}">Удалить</a>
+                            <a href="{% url 'delete' user.id %}">{% trans 'Delete' %}</a>
                         </td>
                     </tr>
                     {% empty %}
                     <tr>
-                        <th rowspan="5">No users yet.</th>
+                        <th rowspan="5">{% trans 'No users yet.' %}</th>
                     </tr>
                     {% endfor %}
                 </tbody>

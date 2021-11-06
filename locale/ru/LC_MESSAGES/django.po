@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-20 21:03+0300\n"
+"POT-Creation-Date: 2021-11-06 13:48+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,22 +20,171 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\task_manager\settings.py:123
+#: .\task_manager\settings.py:146
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
-#: .\task_manager\settings.py:124
+#: .\task_manager\settings.py:147
 msgid "English"
-msgstr ""
+msgstr "English"
 
-#: .\templates\index.html:27
-msgid "Login"
-msgstr "Вход"
-
-#: .\templates\index.html:28
+#: .\templates\base.html:23 .\templates\users\user_list.html:12
 msgid "Users"
 msgstr "Пользователи"
 
-#: .\templates\index.html:29
-msgid "Regisrtation"
+#: .\templates\base.html:27
+#, fuzzy
+#| msgid "Regisrtation"
+msgid "Registration"
 msgstr "Регистрация"
+
+#: .\templates\base.html:32 .\templates\statuses\status_list.html:12
+msgid "Statuses"
+msgstr "Статусы"
+
+#: .\templates\base.html:35 .\templates\tasks\task_list.html:12
+msgid "Tasks"
+msgstr "Задачи"
+
+#: .\templates\base.html:38 .\templates\labels\label_list.html:12
+msgid "Labels"
+msgstr "Метки"
+
+#: .\templates\base.html:42
+msgid "Loguot"
+msgstr "Выход"
+
+#: .\templates\base.html:46 .\templates\users\login_user.html:6
+#: .\templates\users\login_user.html:18
+msgid "Login"
+msgstr "Вход"
+
+#: .\templates\labels\create_label.html:6
+msgid "Labels creation"
+msgstr "Создание метки"
+
+#: .\templates\labels\create_label.html:23
+#: .\templates\statuses\create_status.html:23
+#: .\templates\tasks\create_task.html:35 .\templates\users\create_user.html:23
+msgid "Create"
+msgstr "Создать"
+
+#: .\templates\labels\delete_label.html:6
+msgid "Delete label"
+msgstr "Удаление метки"
+
+#: .\templates\labels\delete_label.html:10
+#: .\templates\statuses\delete_status.html:10
+#: .\templates\tasks\delete_task.html:10 .\templates\users\delete_user.html:10
+msgid "Are you sure you want to delete"
+msgstr "Вы точно хотите удалить"
+
+#: .\templates\labels\delete_label.html:11
+#: .\templates\labels\label_list.html:39
+#: .\templates\statuses\delete_status.html:11
+#: .\templates\statuses\status_list.html:39
+#: .\templates\tasks\delete_task.html:11 .\templates\tasks\task.html:47
+#: .\templates\tasks\task_list.html:78 .\templates\users\delete_user.html:11
+#: .\templates\users\user_list.html:37
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\templates\labels\label_list.html:15
+msgid "Create label"
+msgstr "Создать метку"
+
+#: .\templates\labels\label_list.html:37
+#: .\templates\statuses\status_list.html:37 .\templates\tasks\task.html:45
+#: .\templates\tasks\task_list.html:76 .\templates\users\user_list.html:35
+msgid "Change"
+msgstr "Изменить"
+
+#: .\templates\labels\label_list.html:44
+msgid "No labels yet."
+msgstr "Нет меток"
+
+#: .\templates\labels\update_label.html:6
+msgid "Label change"
+msgstr "Изменение метки"
+
+#: .\templates\labels\update_label.html:22
+#: .\templates\statuses\update_status.html:22
+#: .\templates\tasks\update_task.html:35 .\templates\users\update_user.html:22
+msgid "Update"
+msgstr "Обновить"
+
+#: .\templates\statuses\create_status.html:6
+#, fuzzy
+#| msgid "Statuses"
+msgid "Status creation"
+msgstr "Статусы"
+
+#: .\templates\statuses\delete_status.html:6
+msgid "Delete status"
+msgstr "Удаление статуса"
+
+#: .\templates\statuses\status_list.html:15
+msgid "Create status"
+msgstr "Создать статус"
+
+#: .\templates\statuses\status_list.html:44
+msgid "No statuses yet."
+msgstr "Нет статусов"
+
+#: .\templates\statuses\update_status.html:6
+#, fuzzy
+#| msgid "Statuses"
+msgid "Status change"
+msgstr "Статусы"
+
+#: .\templates\tasks\create_task.html:6
+msgid "Task creation"
+msgstr "Создание задачи"
+
+#: .\templates\tasks\delete_task.html:6
+msgid "Delete task"
+msgstr "Удаление задачи"
+
+#: .\templates\tasks\task.html:12
+msgid "View task "
+msgstr "Просмотр задачи"
+
+#: .\templates\tasks\task_list.html:15
+msgid "Create task"
+msgstr "Создать задачу"
+
+#: .\templates\tasks\task_list.html:43
+msgid "Self tasks only"
+msgstr "Показывать только свои задачи"
+
+#: .\templates\tasks\task_list.html:47
+msgid "Confirm"
+msgstr "Применить"
+
+#: .\templates\tasks\task_list.html:83
+msgid "No tasks yet."
+msgstr "Нет задач"
+
+#: .\templates\tasks\update_task.html:6
+msgid "Tasks change"
+msgstr "Изменение задачи"
+
+#: .\templates\users\create_user.html:6
+#, fuzzy
+#| msgid "Regisrtation"
+msgid "User registration"
+msgstr "Регистрация"
+
+#: .\templates\users\delete_user.html:6
+msgid "Delete user"
+msgstr "Удаление пользователя"
+
+#: .\templates\users\update_user.html:6
+#, fuzzy
+#| msgid "User cahnge"
+msgid "User change"
+msgstr "Изменение пользователя"
+
+#: .\templates\users\user_list.html:42
+msgid "No users yet."
+msgstr "Нет пользователей"

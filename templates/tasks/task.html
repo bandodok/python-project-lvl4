@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="row">
-            <h3 class="h3">Просмотр задачи</h3>
+            <h3 class="h3">{% trans 'View task ' %}</h3>
         </div>
         <div class="row">
             <div class="col">
@@ -42,9 +42,9 @@
                                     <li>{{ label.name }}</li>
                                 {% endfor %}
                             </ul>
-                        <a href="{% url 'task_update' task.id %}">Изменить</a>
+                        <a href="{% url 'task_update' task.id %}">{% trans 'Change' %}</a>
                         <br>
-                        <a href="{% url 'task_delete' task.id %}">Удалить</a>
+                        <a href="{% url 'task_delete' task.id %}">{% trans 'Delete' %}</a>
                     </div>
                 </div>
             </div>
