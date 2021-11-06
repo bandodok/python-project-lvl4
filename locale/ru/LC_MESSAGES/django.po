@@ -56,7 +56,7 @@ msgstr "Метки"
 
 #: .\task_manager\tasks\views.py:29
 msgid "label"
-msgstr "Меткa"
+msgstr "Метка"
 
 #: .\task_manager\views.py:16
 msgid "Username"
