@@ -16,6 +16,13 @@ class TaskView(DetailView):
 
 
 class TaskCreationForm(forms.ModelForm):
+    try:
+        labels = forms.ChoiceField(
+            choices=tuple((label.id, label.name) for label in Label.objects.all()),
+            required=False
+        )
+    except Exception:
+        pass
 
     class Meta:
         model = Task
@@ -66,9 +73,10 @@ class Create(LoginRequiredMixin, FormView):
         task = form.save(commit=False)
         task.author = self.request.user
         task.save()
-        for label in form.cleaned_data['labels']:
-            task.labels.add(label)
-        task.save()
+        if form.cleaned_data['labels']:
+            for label in form.cleaned_data['labels']:
+                task.labels.add(label)
+            task.save()
         messages.success(self.request, 'Задача успешно создана')
         return super(Create, self).form_valid(form)
 
