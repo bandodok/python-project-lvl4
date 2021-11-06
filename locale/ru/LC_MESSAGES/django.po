@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 14:24+0300\n"
+"POT-Creation-Date: 2021-11-06 15:05+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,11 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
+#: .\task_manager\labels\models.py:7 .\task_manager\statuses\models.py:7
+#: .\task_manager\tasks\models.py:10
+msgid "Name"
+msgstr "Имя"
+
 #: .\task_manager\settings.py:146
 msgid "Russian"
 msgstr "Русский"
@@ -27,6 +32,27 @@ msgstr "Русский"
 #: .\task_manager\settings.py:147
 msgid "English"
 msgstr "English"
+
+#: .\task_manager\tasks\models.py:11
+msgid "Description"
+msgstr "Описание"
+
+#: .\task_manager\tasks\models.py:12
+msgid "Status"
+msgstr "Статус"
+
+#: .\task_manager\tasks\models.py:13
+msgid "Author"
+msgstr "Автор"
+
+#: .\task_manager\tasks\models.py:14
+msgid "Executor"
+msgstr "Исполнитель"
+
+#: .\task_manager\tasks\models.py:15 .\templates\base.html:38
+#: .\templates\labels\label_list.html:12
+msgid "Labels"
+msgstr "Метки"
 
 #: .\task_manager\views.py:16
 msgid "Username"
@@ -52,16 +78,11 @@ msgstr "Статусы"
 msgid "Tasks"
 msgstr "Задачи"
 
-#: .\templates\base.html:38 .\templates\labels\label_list.html:12
-msgid "Labels"
-msgstr "Метки"
-
 #: .\templates\base.html:42
 msgid "Loguot"
 msgstr "Выход"
 
 #: .\templates\base.html:46 .\templates\users\login_user.html:6
-#: .\templates\users\login_user.html:18
 msgid "Login"
 msgstr "Вход"
 
@@ -117,7 +138,7 @@ msgstr "Изменение метки"
 #: .\templates\statuses\update_status.html:22
 #: .\templates\tasks\update_task.html:35 .\templates\users\update_user.html:22
 msgid "Update"
-msgstr "Обновить"
+msgstr "Изменить"
 
 #: .\templates\statuses\create_status.html:6
 msgid "Status creation"
@@ -157,11 +178,11 @@ msgstr "Создать задачу"
 
 #: .\templates\tasks\task_list.html:43
 msgid "Self tasks only"
-msgstr "Показывать только свои задачи"
+msgstr "Только свои задачи"
 
 #: .\templates\tasks\task_list.html:47
 msgid "Confirm"
-msgstr "Применить"
+msgstr "Показать"
 
 #: .\templates\tasks\task_list.html:83
 msgid "No tasks yet."
@@ -178,6 +199,10 @@ msgstr "Регистрация"
 #: .\templates\users\delete_user.html:6
 msgid "Delete user"
 msgstr "Удаление пользователя"
+
+#: .\templates\users\login_user.html:18
+msgid "Sign in"
+msgstr "Войти"
 
 #: .\templates\users\update_user.html:6
 msgid "User change"
