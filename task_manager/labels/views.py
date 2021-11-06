@@ -33,7 +33,7 @@ class Create(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         form.save()
-        messages.success(self.request, 'Label created')
+        messages.success(self.request, 'Метка успешно создана')
         return super(Create, self).form_valid(form)
 
     def form_invalid(self, form):
@@ -53,7 +53,7 @@ class Update(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         form.save()
-        messages.success(self.request, 'Label changed')
+        messages.success(self.request, 'Метка успешно изменена')
         return super(Update, self).form_valid(form)
 
     def form_invalid(self, form):

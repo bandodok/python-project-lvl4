@@ -33,7 +33,7 @@ class Create(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         form.save()
-        messages.success(self.request, 'Status created')
+        messages.success(self.request, 'Статус успешно создан')
         return super(Create, self).form_valid(form)
 
     def form_invalid(self, form):
@@ -53,7 +53,7 @@ class Update(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         form.save()
-        messages.success(self.request, 'Status changed')
+        messages.success(self.request, 'Статус успешно изменён')
         return super(Update, self).form_valid(form)
 
     def form_invalid(self, form):
