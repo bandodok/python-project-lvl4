@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 13:48+0300\n"
+"POT-Creation-Date: 2021-11-06 14:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,8 +33,6 @@ msgid "Users"
 msgstr "Пользователи"
 
 #: .\templates\base.html:27
-#, fuzzy
-#| msgid "Regisrtation"
 msgid "Registration"
 msgstr "Регистрация"
 
@@ -114,10 +112,8 @@ msgid "Update"
 msgstr "Обновить"
 
 #: .\templates\statuses\create_status.html:6
-#, fuzzy
-#| msgid "Statuses"
 msgid "Status creation"
-msgstr "Статусы"
+msgstr "Создание статуса"
 
 #: .\templates\statuses\delete_status.html:6
 msgid "Delete status"
@@ -132,8 +128,6 @@ msgid "No statuses yet."
 msgstr "Нет статусов"
 
 #: .\templates\statuses\update_status.html:6
-#, fuzzy
-#| msgid "Statuses"
 msgid "Status change"
 msgstr "Статусы"
 
@@ -170,8 +164,6 @@ msgid "Tasks change"
 msgstr "Изменение задачи"
 
 #: .\templates\users\create_user.html:6
-#, fuzzy
-#| msgid "Regisrtation"
 msgid "User registration"
 msgstr "Регистрация"
 
@@ -180,8 +172,6 @@ msgid "Delete user"
 msgstr "Удаление пользователя"
 
 #: .\templates\users\update_user.html:6
-#, fuzzy
-#| msgid "User cahnge"
 msgid "User change"
 msgstr "Изменение пользователя"
 
