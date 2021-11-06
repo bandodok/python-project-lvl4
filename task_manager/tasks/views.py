@@ -23,9 +23,12 @@ class TaskCreationForm(forms.ModelForm):
 
 
 class TaskFilter(django_filters.FilterSet):
-    labels = django_filters.ChoiceFilter(
-        choices=tuple((label.id, label.name) for label in Label.objects.all())
-    )
+    try:
+        labels = django_filters.ChoiceFilter(
+            choices=tuple((label.id, label.name) for label in Label.objects.all())
+        )
+    except Exception:
+        pass
 
     class Meta:
         model = Task
