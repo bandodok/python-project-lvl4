@@ -8,6 +8,7 @@ from task_manager.tasks.models import Task
 from task_manager.labels.models import Label
 from django import forms
 import django_filters
+from django.utils.translation import ugettext as _
 
 
 class TaskView(DetailView):
@@ -18,6 +19,7 @@ class TaskView(DetailView):
 class TaskCreationForm(forms.ModelForm):
     try:
         labels = forms.ChoiceField(
+            label=_('labels'),
             choices=tuple((label.id, label.name) for label in Label.objects.all()),
             required=False
         )
