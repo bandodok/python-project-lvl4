@@ -16,6 +16,8 @@ import os
 from os.path import join, dirname
 from dotenv import load_dotenv
 from django.utils.translation import gettext_lazy as _
+import django_heroku
+import dj_database_url
 
 
 dotenv_path = join(dirname(__file__), '.env')
@@ -104,14 +106,16 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv("DB_ENGINE"),
-        'NAME': os.getenv("DB_NAME"),
-        'USER': os.getenv("DB_USER"),
-        'PASSWORD': os.getenv("DB_PASSWORD"),
-        'HOST': os.getenv("DB_HOST"),
-        'PORT': os.getenv("DB_PORT"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+db_from_env = dj_database_url.config(conn_max_age=0, ssl_require=False)
+if db_from_env:
+    DATABASES['default'] = db_from_env
+django_heroku.settings(locals(), databases=False)
 
 
 # Password validation
