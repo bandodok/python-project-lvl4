@@ -44,10 +44,10 @@ class Create(FormView):
 class Update(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     model = User
-    fields = ['username', 'first_name', 'last_name']
     template_name = 'users/update_user.html'
     success_url = '/users/'
     permission_denied_message = 'Permission denied'
+    form_class = MyRegisterFormView
 
     def test_func(self):
         obj = self.get_object()
@@ -56,6 +56,10 @@ class Update(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def handle_no_permission(self):
         messages.error(self.request, self.permission_denied_message)
         return redirect('/users/')
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'Поля заполнены неверно')
+        return super(Update, self).form_invalid(form)
 
     def form_valid(self, form):
         form.save()
