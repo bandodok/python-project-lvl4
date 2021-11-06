@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 15:05+0300\n"
+"POT-Creation-Date: 2021-11-06 15:11+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,7 +92,7 @@ msgstr "Создание метки"
 
 #: .\templates\labels\create_label.html:23
 #: .\templates\statuses\create_status.html:23
-#: .\templates\tasks\create_task.html:35 .\templates\users\create_user.html:23
+#: .\templates\tasks\create_task.html:35
 msgid "Create"
 msgstr "Создать"
 
@@ -195,6 +195,10 @@ msgstr "Изменение задачи"
 #: .\templates\users\create_user.html:6
 msgid "User registration"
 msgstr "Регистрация"
+
+#: .\templates\users\create_user.html:23
+msgid "Sing up"
+msgstr "Зарегистрировать"
 
 #: .\templates\users\delete_user.html:6
 msgid "Delete user"
