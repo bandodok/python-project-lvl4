@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 15:11+0300\n"
+"POT-Creation-Date: 2021-11-06 16:17+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,14 +107,10 @@ msgid "Are you sure you want to delete"
 msgstr "Вы точно хотите удалить"
 
 #: .\templates\labels\delete_label.html:11
-#: .\templates\labels\label_list.html:39
 #: .\templates\statuses\delete_status.html:11
-#: .\templates\statuses\status_list.html:39
-#: .\templates\tasks\delete_task.html:11 .\templates\tasks\task.html:47
-#: .\templates\tasks\task_list.html:78 .\templates\users\delete_user.html:11
-#: .\templates\users\user_list.html:37
-msgid "Delete"
-msgstr "Удалить"
+#: .\templates\tasks\delete_task.html:11 .\templates\users\delete_user.html:11
+msgid "Yes, delete"
+msgstr "Да, удалить"
 
 #: .\templates\labels\label_list.html:15
 msgid "Create label"
@@ -125,6 +121,12 @@ msgstr "Создать метку"
 #: .\templates\tasks\task_list.html:76 .\templates\users\user_list.html:35
 msgid "Change"
 msgstr "Изменить"
+
+#: .\templates\labels\label_list.html:39
+#: .\templates\statuses\status_list.html:39 .\templates\tasks\task.html:47
+#: .\templates\tasks\task_list.html:78 .\templates\users\user_list.html:37
+msgid "Delete"
+msgstr "Удалить"
 
 #: .\templates\labels\label_list.html:44
 msgid "No labels yet."
