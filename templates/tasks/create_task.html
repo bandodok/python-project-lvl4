@@ -15,7 +15,7 @@
                 {{ option }}
             {% endfor %}
             </select>
-        {% elif field.html_name == 'labels' %}
+        {% elif field.html_name == 'label' %}
             <label for="{{ field.id_for_label }}">{{ field.label }}</label>
             <select multiple class="form-control" name="{{ field.html_name }}" id="{{ field.id_for_label }}">
             {% for option in field %}
