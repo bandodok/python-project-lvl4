@@ -73,8 +73,10 @@ class Delete(LoginRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         label = self.get_object()
         if label.task_set.all():
-            messages.error(self.request, "Can't delete task")
+            messages.error(self.request, "Невозможно удалить метку, потому что она используется")
             return redirect(reverse_lazy('labels'))
+        messages.success(self.request, 'Метка успешно удалена')
+        return super(Delete, self).delete(request)
 
     def handle_no_permission(self):
         messages.error(self.request, 'Permission denied')

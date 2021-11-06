@@ -113,3 +113,7 @@ class Delete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def handle_no_permission(self):
         messages.error(self.request, 'Permission denied')
         return redirect('/tasks')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, 'Задача успешно удалена')
+        return super(Delete, self).delete(request)

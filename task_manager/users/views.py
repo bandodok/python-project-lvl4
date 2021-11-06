@@ -80,3 +80,7 @@ class Delete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def handle_no_permission(self):
         messages.error(self.request, self.permission_denied_message)
         return redirect('/users/')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, 'Пользователь успешно удалён')
+        return super(Delete, self).delete(request)

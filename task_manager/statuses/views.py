@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.views.generic.edit import FormView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from task_manager.statuses.models import Status
@@ -72,3 +73,11 @@ class Delete(LoginRequiredMixin, DeleteView):
     def handle_no_permission(self):
         messages.error(self.request, 'Permission denied')
         return redirect('/')
+
+    def delete(self, request, *args, **kwargs):
+        status = self.get_object()
+        if status.status.all():
+            messages.error(self.request, "Невозможно удалить статус, потому что он используется")
+            return redirect(reverse_lazy('statuses'))
+        messages.success(self.request, 'Статус успешно удалён')
+        return super(Delete, self).delete(request)
