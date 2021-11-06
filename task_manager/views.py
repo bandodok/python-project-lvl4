@@ -5,7 +5,7 @@ from django.views.generic.edit import FormView
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext as _
 
 
 def index(request):
@@ -13,8 +13,8 @@ def index(request):
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(label=_(u'username'))
-    password = forms.CharField(label=_(u'password'), widget=forms.PasswordInput)
+    username = forms.CharField(label=_('Username'))
+    password = forms.CharField(label=_('Password'), widget=forms.PasswordInput)
 
     class Meta:
         model = User
