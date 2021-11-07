@@ -25,9 +25,9 @@ class TaskCreationForm(forms.ModelForm):
 
 class TaskFilter(django_filters.FilterSet):
     try:
-        label = django_filters.ChoiceFilter(
+        label = django_filters.ModelChoiceFilter(
             label=_('label'),
-            choices=tuple((label.id, label.name) for label in Label.objects.all())
+            queryset=Label.objects.all()
         )
     except Exception:
         pass
