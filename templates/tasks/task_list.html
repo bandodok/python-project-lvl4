@@ -15,38 +15,24 @@
             <a href="{% url 'task_create' %}">{% trans 'Create task' %}</a>
         </div>
 
-            <form class="row g-3" method="get">
-                {% for field in filter.form %}
-                <div class="col-4">
-                    <div class="form-group">
-                    {% if field.html_name == 'status' or field.html_name == 'executor' or field.html_name == 'author' or field.html_name == 'label'%}
-                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                        <select class="form-control" name="{{ field.html_name }}" id="{{ field.id_for_label }}">
-                        {% for option in field %}
-                            {{ option }}
-                        {% endfor %}
-                        </select>
-                    {% else %}
-                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                        <input value="{{ field.value }}" name="{{ field.html_name }}" type="{{ field.html_name }}" class="form-control" id="{{ field.id_for_label }}" placeholder="{{ field.label }}">
-                    {% endif %}
-                        {% if field.help_text %}
-                        <small id="textHelp" class="text-danger">{{ field.errors }}</small>
-                        <small id="textHelp" class="form-text text-muted">{{ field.help_text|safe }}</small>
-                        {% endif %}
+            <div class="card mb-3">
+                <div class="card-body bg-light">
+                    <form class="form-inline center" method="get">
+                        {% bootstrap_field filter.form.status field_class='ml-2 mr-3' %}
+                        {% bootstrap_field filter.form.executor field_class='ml-2 mr-3' %}
+                        {% bootstrap_field filter.form.label field_class='ml-2 mr-3' %}
+                    <div class="ml-2 mr-3">
+                        <div class="form-check">
+                            <input type="checkbox" name="self_tasks" class="form-check-input" id="id_self_tasks">
+                            <label class="form-check-label" for="id_self_tasks">{% trans 'Self tasks only' %}</label>
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
-            <div class="col-11">
-                <div class="form-check">
-                    <input type="checkbox" name="self_tasks" class="form-check-input" id="id_self_tasks">
-                    <label class="form-check-label" for="id_self_tasks">{% trans 'Self tasks only' %}</label>
+                    <div class="col-1">
+                        <input type="submit" value="{% trans 'Confirm' %}">
+                    </div>
+                    </form>
                 </div>
             </div>
-            <div class="col-1">
-                <input type="submit" value="{% trans 'Confirm' %}">
-            </div>
-            </form>
 
         <div class="row">
             <table class="table">
