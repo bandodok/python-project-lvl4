@@ -22,6 +22,9 @@
                 {{ option }}
             {% endfor %}
             </select>
+        {% elif field.html_name == 'description' %}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            <textarea cols="40" rows="10" name="{{ field.html_name }}" class="form-control" id="{{ field.id_for_label }}" placeholder="{{ field.label }}">{{ field.value }}</textarea>
         {% else %}
             <label for="{{ field.id_for_label }}">{{ field.label }}</label>
             <input value="{{ field.value }}" name="{{ field.html_name }}" type="{{ field.html_name }}" class="form-control" id="{{ field.id_for_label }}" placeholder="{{ field.label }}">
