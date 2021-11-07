@@ -18,7 +18,7 @@ class TaskCreationForm(forms.ModelForm):
 
     class Meta:
         model = Task
-        fields = ['name', 'description', 'status', 'executor', 'label']
+        fields = ['name', 'description', 'status', 'executor', 'labels']
 
 
 class Index(LoginRequiredMixin, FilterView):
@@ -52,9 +52,9 @@ class Create(LoginRequiredMixin, FormView):
         task = form.save(commit=False)
         task.author = self.request.user
         task.save()
-        if form.cleaned_data['label']:
-            for label in form.cleaned_data['label']:
-                task.label.add(label)
+        if form.cleaned_data['labels']:
+            for label in form.cleaned_data['labels']:
+                task.labels.add(label)
             task.save()
         messages.success(self.request, 'Задача успешно создана')
         return super(Create, self).form_valid(form)
@@ -72,7 +72,7 @@ class Update(LoginRequiredMixin, UpdateView):
     model = Task
     template_name = 'tasks/update_task.html'
     success_url = '/tasks/'
-    fields = ['name', 'description', 'status', 'executor', 'label']
+    fields = ['name', 'description', 'status', 'executor', 'labels']
 
     def form_valid(self, form):
         form.save()

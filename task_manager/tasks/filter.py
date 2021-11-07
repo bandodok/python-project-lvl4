@@ -5,11 +5,11 @@ from django.utils.translation import ugettext as _
 
 
 class TaskFilter(django_filters.FilterSet):
-    label = django_filters.ModelMultipleChoiceFilter(
+    labels = django_filters.ModelChoiceFilter(
         label='Метка',
-        queryset=Label.objects.all()
+        queryset=Label.objects.all(),
     )
 
     class Meta:
         model = Task
-        fields = ['status', 'executor', 'label']
+        fields = ['status', 'executor', 'labels']
