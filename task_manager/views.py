@@ -35,7 +35,9 @@ class Login(FormView):
             login(request, user)
             return redirect('/')
         else:
-            messages.error(self.request, 'Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут быть чувствительны к регистру.')
+            messages.error(
+                self.request,
+                'Пожалуйста, введите правильные имя пользователя и пароль.')
             return redirect(self.request.META.get('HTTP_REFERER'))
 
 
