@@ -5,7 +5,7 @@ from django.utils.translation import ugettext as _
 
 
 class TaskFilter(django_filters.FilterSet):
-    label = django_filters.ModelChoiceFilter(
+    label = django_filters.ModelMultipleChoiceFilter(
         label=_('label'),
         queryset=Label.objects.all()
     )
