@@ -5,10 +5,8 @@ from django.views.generic import DetailView
 from django.views.generic.edit import FormView, UpdateView, DeleteView
 from django_filters.views import FilterView
 from task_manager.tasks.models import Task
-from task_manager.labels.models import Label
 from django import forms
-import django_filters
-from django.utils.translation import ugettext as _
+from task_manager.tasks.filter import TaskFilter
 
 
 class TaskView(DetailView):
@@ -21,20 +19,6 @@ class TaskCreationForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = ['name', 'description', 'status', 'executor', 'label']
-
-
-class TaskFilter(django_filters.FilterSet):
-    try:
-        label = django_filters.ModelChoiceFilter(
-            label=_('label'),
-            queryset=Label.objects.all()
-        )
-    except Exception:
-        pass
-
-    class Meta:
-        model = Task
-        fields = ['status', 'executor', 'label']
 
 
 class Index(LoginRequiredMixin, FilterView):
